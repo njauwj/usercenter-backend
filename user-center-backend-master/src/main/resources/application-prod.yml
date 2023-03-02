@@ -1,10 +1,11 @@
+#线上环境
 spring:
   # DataSource Config
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: 'jdbc:mysql://sh-cynosdbmysql-grp-98pxrcoq.sql.tencentcdb.com:29164/user_center?useSSL=false'
-    username: self
-    password: liyupi66!
+    url: 'jdbc:mysql://sh-cynosdbmysql-grp-e2g25xa4.sql.tencentcdb.com:26753/universe?useSSL=false'
+    username: root
+    password: "010622wjAdm"
   # session 失效时间
   session:
     timeout: 86400
