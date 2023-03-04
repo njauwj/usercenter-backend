@@ -1,5 +1,6 @@
 package com.yupi.usercenter.service.impl;
 
+import cn.hutool.core.lang.UUID;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.yupi.usercenter.common.ErrorCode;
@@ -17,6 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import static com.yupi.usercenter.contant.UserConstant.USER;
 import static com.yupi.usercenter.contant.UserConstant.USER_LOGIN_STATE;
 
 /**
@@ -78,11 +80,14 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
         }
         // 2. 加密
         String encryptPassword = DigestUtils.md5DigestAsHex((SALT + userPassword).getBytes());
+        //生成随机名称
+        String username = UUID.randomUUID().toString(true);
         // 3. 插入数据
         User user = new User();
         user.setUserAccount(userAccount);
         user.setUserPassword(encryptPassword);
         user.setPlanetCode(planetCode);
+        user.setUsername(USER + username);
         boolean saveResult = this.save(user);
         if (!saveResult) {
             return -1;
@@ -134,7 +139,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
      * @return
      */
     @Override
-    public User getSafetyUser(User originUser)  {
+    public User getSafetyUser(User originUser) {
         if (originUser == null) {
             return null;
         }
@@ -155,6 +160,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
 
     /**
      * 用户注销
+     *
      * @param request
      */
     @Override

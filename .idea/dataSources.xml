@@ -7,5 +7,11 @@
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://sh-cynosdbmysql-grp-e2g25xa4.sql.tencentcdb.com:26753</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="@localhost" uuid="4f838f4a-7a62-4724-a998-1bf759c7a39b">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306</jdbc-url>
+    </data-source>
   </component>
 </project>
