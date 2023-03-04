@@ -1,4 +1,4 @@
-#线上环境,启动时 Java -jar XXX.jar --spring.profiles.active=prod
+#生产环境,启动时 java -jar XXX.jar --spring.profiles.active=prod
 spring:
   # DataSource Config
   datasource:

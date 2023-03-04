@@ -27,6 +27,7 @@ import static com.yupi.usercenter.contant.UserConstant.USER_LOGIN_STATE;
  */
 @RestController
 @RequestMapping("/user")
+@CrossOrigin(value = "http://front.usercenter-wj.icu",allowCredentials = "true")
 public class UserController {
 
     @Resource
